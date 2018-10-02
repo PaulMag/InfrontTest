@@ -6,6 +6,8 @@ using namespace std;
 #include <boost/filesystem.hpp>
 using namespace boost::filesystem;
 
+#include "UniqueFile.h"
+
 
 class DupFileFinder
 {
@@ -14,6 +16,7 @@ public:
 	~DupFileFinder();
 
 	std::vector<path> files;
+	std::vector<UniqueFile> uniqueFiles;
 
 	void recursiveFind(path p);
 };

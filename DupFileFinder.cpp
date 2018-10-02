@@ -22,7 +22,14 @@ void DupFileFinder::recursiveFind(path p)
 			if (is_regular_file(p))
 			{
 				//cout << p << " size is " << file_size(p) << endl;
-				files.push_back(p);
+				for (int i=0; i<uniqueFiles.size(); i++) {
+					files.push_back(p);
+					if (uniqueFiles[i].isDuplicateOf(p)) {
+						uniqueFiles[i].addPath(p);
+						return;  // duplicate found; stop search
+					}
+				}
+				uniqueFiles.push_back(UniqueFile(p));  // if no duplicate found
 			}
 			else if (is_directory(p))
 			{

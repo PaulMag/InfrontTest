@@ -22,10 +22,12 @@ int main()
 {
 	// This comment makes the file 50 bytes larger!
 	
-	string dirname = "../../../Infront";
+	string dirname = "../../../Infront/dummy_files";
 	path p = path(dirname);
 	DupFileFinder d;
 	d.recursiveFind(p);
+	for (auto uf : d.uniqueFiles)
+		uf.display();
 
 	return 0;
 }

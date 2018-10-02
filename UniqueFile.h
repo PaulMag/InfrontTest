@@ -19,6 +19,7 @@ public:
 	void display();
 
 	path name;
+	uintmax_t size;
 	vector<path> directories;
 };
 

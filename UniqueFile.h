@@ -14,12 +14,14 @@ class UniqueFile
 public:
 	UniqueFile(path p);
 	~UniqueFile();
-	void addPath(path p);
-	bool isDuplicateOf(path p);
-	void display();
 
 	path name;
 	uintmax_t size;
 	vector<path> directories;
+
+	void addPath(path p);
+	bool isDuplicateOf(path p);
+	string getString();
+	void display();
 };
 

@@ -19,5 +19,7 @@ public:
 	std::vector<UniqueFile> uniqueFiles;
 
 	void recursiveFind(path p);
+	void writeToFile(string p);
+	void display();
 };
 

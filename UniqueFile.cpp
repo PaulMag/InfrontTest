@@ -56,10 +56,16 @@ bool UniqueFile::isDuplicateOf(path p)
 	return false;
 }
 
+string UniqueFile::getString()
+{
+	string s = name.string() + "\n";
+	for (auto dirname : directories) {
+		s.append("    " + dirname.string() + "\n");
+	}
+	return s;
+}
+
 void UniqueFile::display()
 {
-	cout << name << " number: " << directories.size() << endl;
-	for (auto dirname : directories) {
-		cout << "    " << dirname << endl;
-	}
+	cout << getString();
 }

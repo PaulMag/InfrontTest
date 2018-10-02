@@ -20,14 +20,18 @@ bool operator<(const Person& a, const Person& b)
 
 int main()
 {
-	// This comment makes the file 50 bytes larger!
-	
 	string dirname = "../../../Infront/dummy_files";
 	path p = path(dirname);
 	DupFileFinder d;
 	d.recursiveFind(p);
-	for (auto uf : d.uniqueFiles)
-		uf.display();
+	d.display();
+	cout << endl;
+
+	cout << "Write results to file: ";
+	string outFileName;
+	cin >> outFileName;
+	cout << "Writing to file " << outFileName << endl;
+	d.writeToFile(outFileName);
 
 	return 0;
 }

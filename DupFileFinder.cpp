@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 using namespace std;
 
 
@@ -48,4 +49,19 @@ void DupFileFinder::recursiveFind(path p)
 	{
 		cout << ex.what() << endl;
 	}
+}
+
+void DupFileFinder::writeToFile(string p)
+{
+	std::ofstream outFile;
+	outFile.open(p);
+	for (auto uf : uniqueFiles)
+		outFile << uf.getString();
+	outFile.close();
+}
+
+void DupFileFinder::display()
+{
+	for (auto uf : uniqueFiles)
+		cout << uf.getString();
 }

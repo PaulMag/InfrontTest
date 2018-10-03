@@ -15,6 +15,7 @@ int main()
 	
 	DupFileFinder d;
 	d.recursiveFind(dirname);
+	d.removeNonDups();
 	d.sort();
 	d.group();
 	d.display();

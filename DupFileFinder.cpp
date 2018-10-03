@@ -50,6 +50,15 @@ void DupFileFinder::recursiveFind(path p)
 	}
 }
 
+void DupFileFinder::removeNonDups()
+{
+	vector<UniqueFile> temp;
+	for (int i=0; i<uniqueFiles.size(); i++)
+		if (uniqueFiles[i].directories.size() > 1)  // exclude non-duplicate files
+			temp.push_back(uniqueFiles[i]);
+	uniqueFiles = temp;
+}
+
 bool operator<(const UniqueFile& a, const UniqueFile& b)
 {
 	if (a.name < b.name)
@@ -57,7 +66,6 @@ bool operator<(const UniqueFile& a, const UniqueFile& b)
 	else
 		return false;
 }
-
 void DupFileFinder::sort()
 {
 	std::sort(uniqueFiles.begin(), uniqueFiles.end());

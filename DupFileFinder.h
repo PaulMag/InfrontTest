@@ -18,6 +18,7 @@ public:
 	std::vector<UniqueFile> uniqueFiles;
 
 	void recursiveFind(path p);
+	void removeNonDups();
 	void sort();
 	void group();
 	void writeToFile(string p);

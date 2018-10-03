@@ -1,7 +1,6 @@
 #include "UniqueFile.h"
 
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <iterator>
 #include <algorithm>

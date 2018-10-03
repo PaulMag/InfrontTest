@@ -1,11 +1,5 @@
 #pragma once
 
-#include <vector>
-using namespace std;
-
-#include <boost/filesystem.hpp>
-using namespace boost::filesystem;
-
 #include "UniqueFile.h"
 
 

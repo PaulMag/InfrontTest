@@ -21,6 +21,7 @@ public:
 
 	void addPath(path p);
 	bool isDuplicateOf(path p);
+	void sort();
 	string getString();
 	void display();
 };

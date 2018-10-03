@@ -56,6 +56,11 @@ bool UniqueFile::isDuplicateOf(path p)
 	return false;
 }
 
+void UniqueFile::sort()
+{
+	std::sort(directories.begin(), directories.end());
+}
+
 string UniqueFile::getString()
 {
 	string s = name.string() + "\n";

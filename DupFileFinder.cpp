@@ -51,6 +51,21 @@ void DupFileFinder::recursiveFind(path p)
 	}
 }
 
+bool operator<(const UniqueFile& a, const UniqueFile& b)
+{
+	if (a.name < b.name)
+		return true;
+	else
+		return false;
+}
+
+void DupFileFinder::sort()
+{
+	std::sort(uniqueFiles.begin(), uniqueFiles.end());
+	for (int i=0; i<uniqueFiles.size(); i++)
+		uniqueFiles[i].sort();
+}
+
 void DupFileFinder::writeToFile(string p)
 {
 	std::ofstream outFile;

@@ -24,6 +24,9 @@ int main()
 	path p = path(dirname);
 	DupFileFinder d;
 	d.recursiveFind(p);
+	
+	d.sort();
+
 	d.display();
 	cout << endl;
 

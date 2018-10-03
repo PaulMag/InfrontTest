@@ -15,7 +15,6 @@ public:
 	DupFileFinder();
 	~DupFileFinder();
 
-	std::vector<path> files;
 	std::vector<UniqueFile> uniqueFiles;
 
 	void recursiveFind(path p);

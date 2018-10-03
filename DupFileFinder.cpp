@@ -24,7 +24,6 @@ void DupFileFinder::recursiveFind(path p)
 			{
 				//cout << p << " size is " << file_size(p) << endl;
 				for (int i=0; i<uniqueFiles.size(); i++) {
-					files.push_back(p);
 					if (uniqueFiles[i].isDuplicateOf(p)) {
 						uniqueFiles[i].addPath(p);
 						return;  // duplicate found; stop search

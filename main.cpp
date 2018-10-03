@@ -2,39 +2,30 @@
 #include <string>
 using namespace std;
 
-#include <boost/filesystem.hpp>
-using namespace boost::filesystem;
-
 #include "DupFileFinder.h"
 
 
-/*
-bool operator<(const Person& a, const Person& b)
-{
-	if (a.name < b.name)
-		return true;
-	else
-		return false;
-}
-*/
-
 int main()
 {
-	string dirname = "../../../Infront/dummy_files";
-	path p = path(dirname);
-	DupFileFinder d;
-	d.recursiveFind(p);
+	string dirname;
+	cout << "Directory to search for duplicate files (default '.'): ";
+	getline(cin, dirname);
+	if (dirname.size() == 0)
+		dirname = ".";
 	
+	DupFileFinder d;
+	d.recursiveFind(dirname);
 	d.sort();
 	d.group();
-
 	d.display();
 	cout << endl;
 
-	cout << "Write results to file: ";
 	string outFileName;
-	cin >> outFileName;
+	cout << "Write results to file (default './RESULTS.txt'): ";
+	getline(cin, outFileName);
 	cout << "Writing to file " << outFileName << endl;
+	if (outFileName.size() == 0)
+		outFileName = "RESULTS.txt";
 	d.writeToFile(outFileName);
 
 	return 0;

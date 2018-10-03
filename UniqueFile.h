@@ -18,6 +18,8 @@ public:
 	path name;
 	uintmax_t size;
 	vector<path> directories;
+	bool isGrouped = false;
+	vector<path> namesGrouped;
 
 	void addPath(path p);
 	bool isDuplicateOf(path p);

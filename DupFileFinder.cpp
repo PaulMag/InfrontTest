@@ -65,6 +65,30 @@ void DupFileFinder::sort()
 		uniqueFiles[i].sort();
 }
 
+void DupFileFinder::group()
+/* Group identical sets of files, meaning files that are present in all the same directories. */
+{
+	int counter = uniqueFiles.size();
+	for (int i=1; i<uniqueFiles.size(); i++)
+		for (int j=0; j<i; j++)
+		{
+			if (uniqueFiles[j].isGrouped)
+				continue;
+			if (uniqueFiles[j].directories == uniqueFiles[i].directories) {
+				uniqueFiles[j].namesGrouped.push_back(uniqueFiles[i].name);
+				uniqueFiles[i].isGrouped = true;
+				counter--;
+				break;
+			}
+		}
+	vector<UniqueFile> temp;
+	temp.reserve(counter);
+	for (int i=0; i<uniqueFiles.size(); i++)
+		if (not uniqueFiles[i].isGrouped)
+			temp.push_back(uniqueFiles[i]);
+	uniqueFiles = temp;
+}
+
 void DupFileFinder::writeToFile(string p)
 {
 	std::ofstream outFile;

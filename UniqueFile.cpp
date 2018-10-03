@@ -63,7 +63,11 @@ void UniqueFile::sort()
 
 string UniqueFile::getString()
 {
-	string s = name.string() + "\n";
+	string s = name.string();
+	for (auto filename : namesGrouped) {
+		s.append(", " + filename.string());
+	}
+	s.append("\n");
 	for (auto dirname : directories) {
 		s.append("    " + dirname.string() + "\n");
 	}

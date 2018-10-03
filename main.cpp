@@ -26,6 +26,7 @@ int main()
 	d.recursiveFind(p);
 	
 	d.sort();
+	d.group();
 
 	d.display();
 	cout << endl;

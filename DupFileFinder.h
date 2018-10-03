@@ -19,6 +19,7 @@ public:
 
 	void recursiveFind(path p);
 	void sort();
+	void group();
 	void writeToFile(string p);
 	void display();
 };
